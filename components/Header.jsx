@@ -1,4 +1,5 @@
 import { Flex, Input, InputGroup, InputRightElement, Menu, MenuButton, MenuList, MenuItem, Text } from '@chakra-ui/react'
+import { Rating } from '@material-ui/lab';
 import { Autocomplete } from '@react-google-maps/api'
 import React from 'react';
 
@@ -8,7 +9,7 @@ const Header = ({setType, setRating, setCoordinates}) => {
   return (
     <Flex position={"absolute"} top={0} left={0} width={'full'} px={4} py={2} zIndex={101}>
       {/* <Autocomplete> */}
-        <InputGroup width={"35vw"} shadow='lg'>
+        <InputGroup width={"30vw"} shadow='lg'>
           <InputRightElement 
             pointerEvents={'none'}
             children={<BiSearch color="gray" fontSize={20} />}  
@@ -57,6 +58,18 @@ const Header = ({setType, setRating, setCoordinates}) => {
               >
                 <Text fontSize={16} fontWeight={500} color={"gray.700"}>All Ratings</Text>
               </MenuItem>
+
+              <MenuItem 
+                display={'flex'} 
+                alignItems={'center'} 
+                justifyContent={'center'} 
+                onClick={() => setRatings("")}
+              >
+                <Text fontSize={16} fontWeight={500} color={"orange.500"}>2.0</Text>
+
+                <Rating size="small" value={2} readOnly />
+              </MenuItem>
+
             </MenuList>
           </Menu>
         </Flex>
